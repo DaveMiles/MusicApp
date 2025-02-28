@@ -25,7 +25,7 @@ class Song {
   }
 
   public void print() {
-    System.out.println("Artist: " + artist + ", Title: " + title + ", Plays: " + plays);
+    System.out.printf("Artist: %-20s | Title: %-30s | Plays: %d%n", artist, title, plays);
   }
 }
 
