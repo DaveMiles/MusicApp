@@ -46,27 +46,39 @@ class SongList {
     songs.add(new Song("Chappel Roan", "HOT TO GO!", 595970756));
     songs.add(new Song("E^ST", "Friends", 16514295));
   }
+
+  public void printAllSongs() {
+    for (Song song : songs) {
+      song.print();
+    }
+  }
 }
 
 public class MusicApp {
   public static void main(String[] args) {
     try (Scanner reader = new Scanner(System.in)) {
       boolean programRunning = true;
+      SongList songList = new SongList();
 
       while (programRunning) {
+        System.out.println("");
+        System.out.println("----------");
         System.out.println("Enter a number to select an option:");
         System.out.println("1. Print all songs");
         System.out.println("2. Print songs over a given number of plays");
         System.out.println("3. Add a new song to the list of songs");
         System.out.println("4. Remove a song from the list of songs");
         System.out.println("5. Exit the program");
+        System.out.println("----------");
 
         int input = reader.nextInt();
         reader.nextLine();
+        System.out.println("");
 
         switch (input) {
           case 1:
             // Print all songs
+            songList.printAllSongs();
             break;
           case 2:
             // Print songs over a given number of plays
