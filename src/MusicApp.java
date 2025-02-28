@@ -10,6 +10,22 @@ Your application should have the following features:
 4. Print a list of songs over a given number of plays 
 */
 
+class Song {
+  private String artist;
+  private String title;
+  private int plays;
+
+  public Song(String artist, String title, int plays) {
+    this.artist = artist;
+    this.title = title;
+    this.plays = plays;
+  }
+
+  public void print() {
+    System.out.println("Artist: " + artist + ", Title: " + title + ", Plays: " + plays);
+  }
+}
+
 public class MusicApp {
   public static void main(String[] args) {
 
