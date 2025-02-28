@@ -10,6 +10,8 @@ Your application should have the following features:
 4. Print a list of songs over a given number of plays 
 */
 
+import java.util.ArrayList;
+
 class Song {
   private String artist;
   private String title;
@@ -23,6 +25,25 @@ class Song {
 
   public void print() {
     System.out.println("Artist: " + artist + ", Title: " + title + ", Plays: " + plays);
+  }
+}
+
+class SongList {
+  private ArrayList<Song> songs;
+
+  public SongList() {
+    songs = new ArrayList<Song>();
+
+    songs.add(new Song("Seafret", "Atlantis", 1041721661));
+    songs.add(new Song("Seafret", "Oceans", 202311668));
+    songs.add(new Song("Seafret", "Wildfire", 59731592));
+    songs.add(new Song("Orla Gartland", "Why Am I Like This?", 76399312));
+    songs.add(new Song("Orla Gartland", "Little Chaos", 3220324));
+    songs.add(new Song("Orla Gartland", "More Like You", 19187743));
+    songs.add(new Song("Gigi Perez", "Sailor Song", 758039084));
+    songs.add(new Song("Chappel Roan", "Pink Pony Club", 1312588412));
+    songs.add(new Song("Chappel Roan", "HOT TO GO!", 595970756));
+    songs.add(new Song("E^ST", "Friends", 16514295));
   }
 }
 
