@@ -11,6 +11,7 @@ Your application should have the following features:
 */
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 class Song {
   private String artist;
@@ -49,6 +50,41 @@ class SongList {
 
 public class MusicApp {
   public static void main(String[] args) {
+    try (Scanner reader = new Scanner(System.in)) {
+      boolean programRunning = true;
 
+      while (programRunning) {
+        System.out.println("Enter a number to select an option:");
+        System.out.println("1. Print all songs");
+        System.out.println("2. Print songs over a given number of plays");
+        System.out.println("3. Add a new song to the list of songs");
+        System.out.println("4. Remove a song from the list of songs");
+        System.out.println("5. Exit the program");
+
+        int input = reader.nextInt();
+        reader.nextLine();
+
+        switch (input) {
+          case 1:
+            // Print all songs
+            break;
+          case 2:
+            // Print songs over a given number of plays
+            break;
+          case 3:
+            // Add a new song to the list of songs
+            break;
+          case 4:
+            // Remove a song from the list of songs
+            break;
+          case 5:
+            programRunning = false;
+            break;
+          default:
+            System.out.println("Invalid input. Please enter a number between 1 and 5.");
+        }
+      }
+
+    }
   }
 }
