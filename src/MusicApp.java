@@ -16,10 +16,10 @@ import java.util.Scanner;
 class Song {
   private String artist;
   private String title;
-  public int plays;
+  public long plays;
   private int id;
 
-  public Song(String artist, String title, int plays, int id) {
+  public Song(String artist, String title, long plays, int id) {
     this.artist = artist;
     this.title = title;
     this.plays = plays;
@@ -55,7 +55,7 @@ class SongList {
     }
   }
 
-  public void printSongsOverPlays(int minPlays) {
+  public void printSongsOverPlays(long minPlays) {
     for (Song song : songs) {
       if (song.plays > minPlays) {
         song.print();
@@ -67,8 +67,15 @@ class SongList {
     return songs.size();
   }
 
-  public void addSong(String artist, String title, int plays, int id) {
-    songs.add(new Song(artist, title, plays, id));
+  public Song getSongById(int id) {
+    int index = id - 1;
+    return songs.get(index);
+  }
+
+  public void addSong(String artist, String title, long plays, int id) {
+    Song newSong = new Song(artist, title, plays, id);
+    songs.add(newSong);
+    newSong.print();
   }
 
   public void removeSong(int id) {
@@ -118,6 +125,7 @@ public class MusicApp {
             break;
           case 5:
             programRunning = false;
+            System.out.println("Thanks for using my Music App!");
             break;
           default:
             System.out.println("Invalid input. Please enter a number between 1 and 5.");
@@ -133,9 +141,11 @@ public class MusicApp {
     int id = reader.nextInt();
     reader.nextLine();
     addNewlineToConsole();
-    System.out.println("Song removed from the list:");
-    addNewlineToConsole();
+    Song songToRemove = songList.getSongById(id);
     songList.removeSong(id);
+    System.out.println("Song removed from the list:");
+    songToRemove.print();
+    addNewlineToConsole();
   }
 
   private static void addSongToSongList(Scanner reader, SongList songList) {
@@ -147,7 +157,7 @@ public class MusicApp {
     String title = reader.nextLine();
     addNewlineToConsole();
     System.out.println("Enter the number of plays:");
-    int plays = reader.nextInt();
+    long plays = reader.nextLong();
     reader.nextLine();
     addNewlineToConsole();
     System.out.println("Song added to the list:");
@@ -160,7 +170,7 @@ public class MusicApp {
   private static void printSongsOverPlays(Scanner reader, SongList songList) {
     addNewlineToConsole();
     System.out.println("Enter the minimum number of plays:");
-    int minPlays = reader.nextInt();
+    long minPlays = reader.nextLong();
     reader.nextLine();
     addNewlineToConsole();
     System.out.println("Songs with more than " + String.format("%,d", minPlays) + " plays:");
