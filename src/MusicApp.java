@@ -140,12 +140,35 @@ public class MusicApp {
     System.out.println("Enter the ID of the song you want to remove:");
     int id = reader.nextInt();
     reader.nextLine();
-    addNewlineToConsole();
     Song songToRemove = songList.getSongById(id);
-    songList.removeSong(id);
-    System.out.println("Song removed from the list:");
-    songToRemove.print();
-    addNewlineToConsole();
+
+    boolean confirmationLoop = true;
+    while (confirmationLoop) {
+      addNewlineToConsole();
+      System.out.println("Enter 'yes' to confirm or 'no' to cancel:");
+      addNewlineToConsole();
+      songToRemove.print();
+      String confirmation = reader.nextLine();
+      switch (confirmation) {
+        case "yes":
+          songList.removeSong(id);
+          addNewlineToConsole();
+          System.out.println("Song removed from the list:");
+          songToRemove.print();
+          confirmationLoop = false;
+          return;
+        case "no":
+          addNewlineToConsole();
+          System.out.println("Song not removed from the list.");
+          confirmationLoop = false;
+          return;
+        default:
+          addNewlineToConsole();
+          System.out.println("Invalid input. Please enter 'yes' or 'no'.");
+          break;
+      }
+    }
+
   }
 
   private static void addSongToSongList(Scanner reader, SongList songList) {
