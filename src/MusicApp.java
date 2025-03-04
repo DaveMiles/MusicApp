@@ -47,6 +47,14 @@ class SongList {
     songs.add(new Song("Chappel Roan", "Pink Pony Club", 1312588412, 8));
     songs.add(new Song("Chappel Roan", "HOT TO GO!", 595970756, 9));
     songs.add(new Song("E^ST", "Friends", 16514295, 10));
+    songs.add(new Song("Busted", "Year 3000", 121222699, 11));
+    songs.add(new Song("Smash Mouth", "All Star", 1216529254, 12));
+    songs.add(new Song("The Killers", "Mr. Brightside", 1041721661, 13));
+    songs.add(new Song("Pitbull", "Hotel Room Service", 202311668, 14));
+    songs.add(new Song("Bob The Builder", "Can We Fix It?", 59731592, 15));
+    songs.add(new Song("Queen", "Bohemian Rhapsody", 76399312, 16));
+    songs.add(new Song("The Beatles", "Hey Jude", 3220324, 17));
+    songs.add(new Song("The Rolling Stones", "Paint It Black", 19187743, 18));
   }
 
   public void printAllSongs() {
