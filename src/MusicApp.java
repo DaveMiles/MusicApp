@@ -70,6 +70,11 @@ class SongList {
   public void addSong(String artist, String title, int plays, int id) {
     songs.add(new Song(artist, title, plays, id));
   }
+
+  public void removeSong(int id) {
+    int index = id - 1;
+    songs.remove(index);
+  }
 }
 
 public class MusicApp {
@@ -109,6 +114,7 @@ public class MusicApp {
             break;
           case 4:
             // Remove a song from the list of songs
+            removeSongFromList(reader, songList);
             break;
           case 5:
             programRunning = false;
@@ -119,6 +125,17 @@ public class MusicApp {
       }
 
     }
+  }
+
+  private static void removeSongFromList(Scanner reader, SongList songList) {
+    addNewlineToConsole();
+    System.out.println("Enter the ID of the song you want to remove:");
+    int id = reader.nextInt();
+    reader.nextLine();
+    addNewlineToConsole();
+    System.out.println("Song removed from the list:");
+    addNewlineToConsole();
+    songList.removeSong(id);
   }
 
   private static void addSongToSongList(Scanner reader, SongList songList) {
