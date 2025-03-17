@@ -16,7 +16,7 @@ class Song {
   private String artist;
   private String title;
   public long plays;
-  private static int idCounter = 1;
+  private static int idCounter = 0;
   private int id;
 
   public Song(String artist, String title, long plays) {
@@ -27,7 +27,7 @@ class Song {
   }
 
   public void print() {
-    System.out.printf("ID: %-2d | Artist: %-15s | Title: %-20s | Plays: %,15d%n", id, artist, title, plays);
+    System.out.printf("ID: %-2d | Artist: %-18s | Title: %-20s | Plays: %,15d%n", id, artist, title, plays);
   }
 }
 
@@ -82,8 +82,7 @@ class SongList {
   }
 
   public void removeSong(int id) {
-    int index = id - 1;
-    songs.remove(index);
+    songs.remove(id);
   }
 }
 
@@ -105,7 +104,6 @@ public class MusicApp {
         System.out.println("----------");
 
         int input = reader.nextInt();
-        reader.nextLine();
 
         addNewlineToConsole();
 
@@ -142,7 +140,6 @@ public class MusicApp {
     addNewlineToConsole();
     System.out.println("Enter the ID of the song you want to remove:");
     int id = reader.nextInt();
-    reader.nextLine();
     Song songToRemove = songList.getSongById(id);
 
     boolean confirmationLoop = true;
@@ -184,7 +181,6 @@ public class MusicApp {
     addNewlineToConsole();
     System.out.println("Enter the number of plays:");
     long plays = reader.nextLong();
-    reader.nextLine();
     addNewlineToConsole();
     System.out.println("Song added to the list:");
     addNewlineToConsole();
@@ -196,7 +192,6 @@ public class MusicApp {
     addNewlineToConsole();
     System.out.println("Enter the minimum number of plays:");
     long minPlays = reader.nextLong();
-    reader.nextLine();
     addNewlineToConsole();
     System.out.println("Songs with more than " + String.format("%,d", minPlays) + " plays:");
     addNewlineToConsole();
