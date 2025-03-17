@@ -1,8 +1,7 @@
 /*
 Your task is to develop a basic Java console application that will emulate the main features of a music
 streaming service such as Spotify or Apple Music. 
-You should code a basic application that is able to store a list of song objects. Each song object should be
-able to store the artist’s name, the song title, and the current number of times the song has been played.
+You should code a basic application that is able to store a list of song objects. Each song object should be able to store the artist’s name, the song title, and the current number of times the song has been played.
 Your application should have the following features:
 1. Add a new song to the list of songs
 2. Remove a song from the list of songs
@@ -17,13 +16,14 @@ class Song {
   private String artist;
   private String title;
   public long plays;
+  private static int idCounter = 1;
   private int id;
 
-  public Song(String artist, String title, long plays, int id) {
+  public Song(String artist, String title, long plays) {
     this.artist = artist;
     this.title = title;
     this.plays = plays;
-    this.id = id;
+    this.id = idCounter++;
   }
 
   public void print() {
@@ -37,24 +37,24 @@ class SongList {
   public SongList() {
     songs = new ArrayList<Song>();
 
-    songs.add(new Song("Seafret", "Atlantis", 1041721661, 1));
-    songs.add(new Song("Seafret", "Oceans", 202311668, 2));
-    songs.add(new Song("Seafret", "Wildfire", 59731592, 3));
-    songs.add(new Song("Orla Gartland", "Why Am I Like This?", 76399312, 4));
-    songs.add(new Song("Orla Gartland", "Little Chaos", 3220324, 5));
-    songs.add(new Song("Orla Gartland", "More Like You", 19187743, 6));
-    songs.add(new Song("Gigi Perez", "Sailor Song", 758039084, 7));
-    songs.add(new Song("Chappel Roan", "Pink Pony Club", 1312588412, 8));
-    songs.add(new Song("Chappel Roan", "HOT TO GO!", 595970756, 9));
-    songs.add(new Song("E^ST", "Friends", 16514295, 10));
-    songs.add(new Song("Busted", "Year 3000", 121222699, 11));
-    songs.add(new Song("Smash Mouth", "All Star", 1216529254, 12));
-    songs.add(new Song("The Killers", "Mr. Brightside", 1041721661, 13));
-    songs.add(new Song("Pitbull", "Hotel Room Service", 202311668, 14));
-    songs.add(new Song("Bob The Builder", "Can We Fix It?", 59731592, 15));
-    songs.add(new Song("Queen", "Bohemian Rhapsody", 76399312, 16));
-    songs.add(new Song("The Beatles", "Hey Jude", 3220324, 17));
-    songs.add(new Song("The Rolling Stones", "Paint It Black", 19187743, 18));
+    songs.add(new Song("Seafret", "Atlantis", 1041721661));
+    songs.add(new Song("Seafret", "Oceans", 202311668));
+    songs.add(new Song("Seafret", "Wildfire", 59731592));
+    songs.add(new Song("Orla Gartland", "Why Am I Like This?", 76399312));
+    songs.add(new Song("Orla Gartland", "Little Chaos", 3220324));
+    songs.add(new Song("Orla Gartland", "More Like You", 19187743));
+    songs.add(new Song("Gigi Perez", "Sailor Song", 758039084));
+    songs.add(new Song("Chappel Roan", "Pink Pony Club", 1312588412));
+    songs.add(new Song("Chappel Roan", "HOT TO GO!", 595970756));
+    songs.add(new Song("E^ST", "Friends", 16514295));
+    songs.add(new Song("Busted", "Year 3000", 121222699));
+    songs.add(new Song("Smash Mouth", "All Star", 1216529254));
+    songs.add(new Song("The Killers", "Mr. Brightside", 1041721661));
+    songs.add(new Song("Pitbull", "Hotel Room Service", 202311668));
+    songs.add(new Song("Bob The Builder", "Can We Fix It?", 59731592));
+    songs.add(new Song("Queen", "Bohemian Rhapsody", 76399312));
+    songs.add(new Song("The Beatles", "Hey Jude", 3220324));
+    songs.add(new Song("The Rolling Stones", "Paint It Black", 19187743));
   }
 
   public void printAllSongs() {
@@ -71,17 +71,12 @@ class SongList {
     }
   }
 
-  public int getListLength() {
-    return songs.size();
-  }
-
   public Song getSongById(int id) {
-    int index = id - 1;
-    return songs.get(index);
+    return songs.get(id);
   }
 
-  public void addSong(String artist, String title, long plays, int id) {
-    Song newSong = new Song(artist, title, plays, id);
+  public void addSong(String artist, String title, long plays) {
+    Song newSong = new Song(artist, title, plays);
     songs.add(newSong);
     newSong.print();
   }
@@ -193,8 +188,7 @@ public class MusicApp {
     addNewlineToConsole();
     System.out.println("Song added to the list:");
     addNewlineToConsole();
-    int id = songList.getListLength() + 1;
-    songList.addSong(artist, title, plays, id);
+    songList.addSong(artist, title, plays);
 
   }
 
