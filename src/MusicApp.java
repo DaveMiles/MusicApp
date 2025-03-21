@@ -155,7 +155,6 @@ public class MusicApp {
           songList.removeSong(id);
           addNewlineToConsole();
           System.out.println("Song removed from the list:");
-          songToRemove.print();
           confirmationLoop = false;
           return;
         case "no":
@@ -175,11 +174,11 @@ public class MusicApp {
   private static void addSongToSongList(Scanner reader, SongList songList) {
     addNewlineToConsole();
     System.out.println("Enter the artist's name:");
-    String artist = reader.next();
     reader.nextLine();
+    String artist = reader.nextLine();
     addNewlineToConsole();
     System.out.println("Enter the song title:");
-    String title = reader.next();
+    String title = reader.nextLine();
     addNewlineToConsole();
     System.out.println("Enter the number of plays:");
     long plays = reader.nextLong();
