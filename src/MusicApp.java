@@ -175,11 +175,11 @@ public class MusicApp {
   private static void addSongToSongList(Scanner reader, SongList songList) {
     addNewlineToConsole();
     System.out.println("Enter the artist's name:");
-    String artist = reader.nextLine();
+    String artist = reader.next();
     reader.nextLine();
     addNewlineToConsole();
     System.out.println("Enter the song title:");
-    String title = reader.nextLine();
+    String title = reader.next();
     addNewlineToConsole();
     System.out.println("Enter the number of plays:");
     long plays = reader.nextLong();
