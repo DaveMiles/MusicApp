@@ -176,12 +176,14 @@ public class MusicApp {
     addNewlineToConsole();
     System.out.println("Enter the artist's name:");
     String artist = reader.nextLine();
+    reader.nextLine();
     addNewlineToConsole();
     System.out.println("Enter the song title:");
     String title = reader.nextLine();
     addNewlineToConsole();
     System.out.println("Enter the number of plays:");
     long plays = reader.nextLong();
+    reader.nextLine();
     addNewlineToConsole();
     System.out.println("Song added to the list:");
     addNewlineToConsole();
@@ -193,6 +195,7 @@ public class MusicApp {
     addNewlineToConsole();
     System.out.println("Enter the minimum number of plays:");
     long minPlays = reader.nextLong();
+    reader.nextLine();
     addNewlineToConsole();
     System.out.println("Songs with more than " + String.format("%,d", minPlays) + " plays:");
     addNewlineToConsole();
