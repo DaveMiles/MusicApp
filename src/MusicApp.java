@@ -140,6 +140,7 @@ public class MusicApp {
     addNewlineToConsole();
     System.out.println("Enter the ID of the song you want to remove:");
     int id = reader.nextInt();
+    reader.nextLine();
     Song songToRemove = songList.getSongById(id);
 
     boolean confirmationLoop = true;
